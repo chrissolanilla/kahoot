@@ -376,87 +376,219 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
+/* dracula-ish palette */
 .app {
+    --bg: #282a36;
+    --panel: #1f2230;
+    --panel2: #212437;
+    --text: #f8f8f2;
+    --muted: rgba(248, 248, 242, 0.72);
+
+    --purple: #bd93f9;
+    --pink: #ff79c6;
+    --cyan: #8be9fd;
+    --green: #50fa7b;
+    --yellow: #f1fa8c;
+    --red: #ff5555;
+
+    --border: rgba(189, 147, 249, 0.28);
+    --borderSoft: rgba(248, 248, 242, 0.14);
+    --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+	margin: 0;
+
     font-family: Lato, system-ui, sans-serif;
+    color: var(--text);
     padding: 16px;
+
+    min-height: 100vh;
+    background:var(--bg);
 }
+
 .header {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
+
+.header h1 {
+    margin: 0 0 6px 0;
+    letter-spacing: 0.3px;
+}
+
 .panel {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 12px;
+    background: linear-gradient(180deg, var(--panel), var(--panel2));
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px;
     max-width: 700px;
+    box-shadow: var(--shadow);
 }
+
 .row {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     align-items: flex-end;
     margin-top: 12px;
 }
+
 .field {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
+
 .grow {
     flex: 1;
 }
+
 .sectionTitle {
     margin-top: 18px;
 }
+
 .muted {
-    opacity: 0.7;
+    opacity: 1;
+    color: var(--muted);
 }
+
 .spacer {
     flex: 1;
 }
+
+.field label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.field input {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    border: 1px solid var(--borderSoft);
+    border-radius: 12px;
+    padding: 10px 12px;
+    outline: none;
+}
+
+.field input::placeholder {
+    color: rgba(248, 248, 242, 0.35);
+}
+
+.field input:focus {
+    border-color: rgba(139, 233, 253, 0.65);
+    box-shadow: 0 0 0 3px rgba(139, 233, 253, 0.18);
+}
+
+button {
+    border: 1px solid var(--borderSoft);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text);
+    border-radius: 12px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition:
+        transform 0.06s ease,
+        border-color 0.12s ease,
+        background 0.12s ease,
+        opacity 0.12s ease;
+}
+
+button:hover {
+    border-color: rgba(189, 147, 249, 0.6);
+    background: rgba(189, 147, 249, 0.12);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.primary {
+    font-weight: 800;
+    border-color: rgba(189, 147, 249, 0.75);
+    background: rgba(189, 147, 249, 0.18);
+}
+
+.primary:hover {
+    background: rgba(189, 147, 249, 0.26);
+}
+
 .lobbyRow {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     align-items: center;
-    margin: 8px 0;
+    margin: 10px 0;
+    padding: 10px 10px;
+    border-radius: 12px;
+    border: 1px solid var(--borderSoft);
+    background: rgba(255, 255, 255, 0.04);
 }
+
 .lobbyRow__label {
     flex: 1;
 }
+
 .players {
-    margin: 8px 0;
+    margin: 10px 0;
     padding-left: 18px;
 }
+
+.players li {
+    margin: 6px 0;
+}
+
 .banner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    margin: 10px 0 12px 0;
+    border: 1px solid var(--borderSoft);
+    background: rgba(255, 255, 255, 0.06);
 }
+
 .banner[data-type="error"] {
-    border-color: #d88;
+    border-color: rgba(255, 85, 85, 0.65);
+    background: rgba(255, 85, 85, 0.10);
 }
+
 .banner[data-type="success"] {
-    border-color: #8d8;
+    border-color: rgba(80, 250, 123, 0.65);
+    background: rgba(80, 250, 123, 0.10);
 }
+
+.banner[data-type="info"] {
+    border-color: rgba(139, 233, 253, 0.45);
+    background: rgba(139, 233, 253, 0.08);
+}
+
 .banner__close {
     font-size: 18px;
     line-height: 1;
+    padding: 6px 10px;
+    border-radius: 12px;
+    background: transparent;
 }
+
+.banner__close:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
 .pill {
     font-size: 12px;
-    padding: 3px 8px;
-    border: 1px solid #ddd;
+    padding: 4px 10px;
+    border: 1px solid var(--borderSoft);
     border-radius: 999px;
-    opacity: 0.9;
+    color: var(--muted);
+    background: rgba(255, 255, 255, 0.03);
 }
+
 .pill--started {
-    border-color: #8d8;
-}
-.primary {
-    font-weight: 700;
+    border-color: rgba(80, 250, 123, 0.65);
+    color: var(--green);
 }
 </style>
 
