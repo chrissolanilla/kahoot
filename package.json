@@ -1,0 +1,19 @@
+{
+	"name": "kahoot-materia-widget",
+	"materia": {
+		"cleanName": "kahoot"
+	},
+	"version": "1.0",
+	"description": "A multiplayer kahoot widget",
+	"scripts": {
+		"start": "mwdk-start",
+		"build": "mwdk-build-prod",
+		"build-dev": "mwdk-build-dev"
+	},
+	"author": "UCF Center for Distributed Learning",
+	"license": "",
+	"dependencies": {
+		"materia-widget-development-kit": "3.0.4",
+		"raw-loader": "^4.0.2"
+	}
+}

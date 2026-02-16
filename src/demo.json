@@ -1,0 +1,26 @@
+{
+	"name": "Kahoot demo",
+	"qset": {
+		"version": 1,
+		"data": {
+			"items": [
+				{
+					"materiaType": "question",
+					"questions": [{ "text": "Some question" }],
+					"type": "kahoot",
+					"id": 0,
+					"answers": [
+						{
+							"text": "some answer",
+							"value": 100
+						}
+					]
+				}
+			],
+			"options": {
+				"showAnswers": true,
+				"lives": 3
+			}
+		}
+	}
+}

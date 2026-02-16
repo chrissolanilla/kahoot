@@ -1,0 +1,34 @@
+---
+general:
+    name: Kahoot
+    height: 0
+    width: 0
+    in_catalog: Yes
+    is_editable: Yes
+    is_playable: Yes
+    is_qset_encrypted: Yes
+    is_answer_encrypted: Yes
+    is_storage_enabled: No
+    api_version: 2
+files:
+    creator: creator.html
+    player: player.html
+    creator_guide: guides/creator.html
+    player_guide: guides/player.html
+    flash_version: 0
+score:
+    is_scorable: Yes
+    score_module: Khaoot
+    score_screen: scoreScreen.html
+meta_data:
+    features:
+        - Customizable
+        - Scorable
+    supported_data:
+        - Multiple Choice
+    excerpt: >
+        TBD
+    about: >
+        TBD
+    accessibility_keyboard: Full
+    accessibility_reader: Full
