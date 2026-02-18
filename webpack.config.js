@@ -1,6 +1,6 @@
 const path = require("path");
 const widgetWebpack = require("materia-widget-development-kit/webpack-widget");
-const { VueLoaderPlugin } = require("vue-loader");
+// const { VueLoaderPlugin } = require("vue-loader");
 
 const srcPath = path.join(__dirname, "src") + path.sep;
 const outputPath = path.join(__dirname, "build") + path.sep;
@@ -27,11 +27,34 @@ const options = {
   entries,
   copyList: copy,
   moduleRules: [
-    rules.loadHTMLAndReplaceMateriaScripts,
-    rules.loadAndPrefixSASS,
-    rules.copyImages,
-    { test: /\.svg$/, use: "raw-loader" },
-  ],
+	  rules.loadHTMLAndReplaceMateriaScripts,
+	  rules.loadAndPrefixSASS,
+	  rules.copyImages,
+
+	  // React / JSX
+	  {
+		test: /\.(js|jsx)$/,
+		exclude: /node_modules/,
+		use: {
+		  loader: "babel-loader",
+		  options: {
+			presets: [
+			  ["@babel/preset-env", { targets: "defaults" }],
+			  ["@babel/preset-react", { runtime: "automatic" }],
+			],
+		  },
+		},
+	  },
+
+	  { test: /\.svg$/, use: "raw-loader" },
+	],
+
+  // moduleRules: [
+  //   rules.loadHTMLAndReplaceMateriaScripts,
+  //   rules.loadAndPrefixSASS,
+  //   rules.copyImages,
+  //   { test: /\.svg$/, use: "raw-loader" },
+  // ],
 };
 
 const buildConfig = widgetWebpack.getLegacyWidgetBuildConfig(options);
@@ -40,22 +63,27 @@ const buildConfig = widgetWebpack.getLegacyWidgetBuildConfig(options);
 buildConfig.module = buildConfig.module || {};
 buildConfig.module.rules = buildConfig.module.rules || [];
 
-buildConfig.module.rules.unshift({
-  test: /\.vue$/,
-  loader: "vue-loader",
-});
+// buildConfig.module.rules.unshift({
+//   test: /\.vue$/,
+//   loader: "vue-loader",
+// });
 
 buildConfig.resolve = buildConfig.resolve || {};
+// buildConfig.resolve.extensions = Array.from(
+//   new Set([...(buildConfig.resolve.extensions || []), ".vue", ".js", ".json"])
+// );
+
 buildConfig.resolve.extensions = Array.from(
-  new Set([...(buildConfig.resolve.extensions || []), ".vue", ".js", ".json"])
+  new Set([...(buildConfig.resolve.extensions || []), ".js", ".jsx", ".json"])
 );
 
-buildConfig.resolve.alias = {
-  ...(buildConfig.resolve.alias || {}),
-  vue$: "vue/dist/vue.esm-bundler.js",
-};
+
+// buildConfig.resolve.alias = {
+//   ...(buildConfig.resolve.alias || {}),
+//   vue$: "vue/dist/vue.esm-bundler.js",
+// };
 
 buildConfig.plugins = buildConfig.plugins || [];
-buildConfig.plugins.push(new VueLoaderPlugin());
+// buildConfig.plugins.push(new VueLoaderPlugin());
 
 module.exports = buildConfig;

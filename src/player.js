@@ -1,5 +1,9 @@
-import { createApp } from "vue";
-import App from "./player/player.vue";
+import React from "react";
+import { createRoot } from "react-dom/client";
+import App from "./player/App.jsx";
 
-createApp(App).mount("#app");
+const app = document.getElementById("app");
+createRoot(app).render(
+	<App />
+);
 
