@@ -1,58 +1,50 @@
-import React from "react";
-import Question from "./Question";
-import { createQuestion } from "../lib/quizModel";
+import React from 'react';
+import Question from './Question';
+import { createQuestion } from '../lib/quizModel';
 
 export default function QuestionEditor({ quiz, setQuiz }) {
-  function setTitle(nextTitle) {
-    setQuiz({ ...quiz, title: nextTitle });
-  }
+    function addQuestion() {
+        setQuiz({ ...quiz, questions: [...quiz.questions, createQuestion()] });
+    }
 
-  function addQuestion() {
-    setQuiz({ ...quiz, questions: [...quiz.questions, createQuestion()] });
-  }
+    function updateQuestion(id, patch) {
+        setQuiz({
+            ...quiz,
+            questions: quiz.questions.map((q) => (q.id === id ? { ...q, ...patch } : q)),
+        });
+    }
 
-  function deleteQuestion(questionId) {
-    const next = quiz.questions.filter((q) => q.id !== questionId);
-    setQuiz({ ...quiz, questions: next.length ? next : [createQuestion()] });
-  }
+    function deleteQuestion(id) {
+        if (quiz.questions.length <= 1) return;
+        setQuiz({
+            ...quiz,
+            questions: quiz.questions.filter((q) => q.id !== id),
+        });
+    }
 
-  function updateQuestion(questionId, patch) {
-    const nextQuestions = quiz.questions.map((q) =>
-      q.id === questionId ? { ...q, ...patch } : q
+    return (
+        <div>
+            <div className="topBar">
+                <input
+                    value={quiz.title}
+                    onChange={(e) => setQuiz({ ...quiz, title: e.target.value })}
+                    placeholder="Quiz title"
+                />
+                <button type="button" onClick={addQuestion}>
+                    + Add Question
+                </button>
+            </div>
+
+            {quiz.questions.map((q, idx) => (
+                <Question
+                    key={q.id}
+                    index={idx}
+                    question={q}
+                    onChange={(patch) => updateQuestion(q.id, patch)}
+                    onDelete={() => deleteQuestion(q.id)}
+                    disableDelete={quiz.questions.length <= 1}
+                />
+            ))}
+        </div>
     );
-    setQuiz({ ...quiz, questions: nextQuestions });
-  }
-
-  return (
-    <div className="questionEditor">
-      <div className="topBar">
-        <label>
-          Title
-          <input
-            value={quiz.title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="My Kahoot"
-          />
-        </label>
-
-        <button type="button" onClick={addQuestion}>
-          + Add Question
-        </button>
-      </div>
-
-      <div className="questions">
-        {quiz.questions.map((q, idx) => (
-          <Question
-            key={q.id}
-            index={idx}
-            question={q}
-            onChange={(patch) => updateQuestion(q.id, patch)}
-            onDelete={() => deleteQuestion(q.id)}
-            disableDelete={quiz.questions.length <= 1}
-          />
-        ))}
-      </div>
-    </div>
-  );
 }
-

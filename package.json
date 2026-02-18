@@ -8,7 +8,9 @@
 	"scripts": {
 		"start": "mwdk-start",
 		"build": "mwdk-build-prod",
-		"build-dev": "mwdk-build-dev"
+		"build-dev": "mwdk-build-dev",
+		"prettier-format": "prettier --write \"src/creator/**/*.{js,jsx,ts,tsx,json,css,scss,html}\"",
+		"prettier-check": "prettier --check ."
 	},
 	"author": "UCF Center for Distributed Learning",
 	"license": "",
@@ -22,6 +24,12 @@
 		"@babel/core": "^7.29.0",
 		"@babel/preset-env": "^7.29.0",
 		"@babel/preset-react": "^7.28.5",
-		"babel-loader": "^10.0.0"
+		"babel-loader": "^10.0.0",
+		"eslint": "^8.19.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-vue": "^9.2.0",
+		"prettier": "^2.7.1"
+
 	}
 }
