@@ -1,5 +1,5 @@
 {
-	"name": "Kahoot demo",
+	"name": "Classroom Clash demo",
 	"qset": {
 		"version": 1,
 		"data": {
@@ -15,7 +15,6 @@
 							"value": 100,
 							"swag_points": 1000
 						},
-
 						{
 							"text": "B",
 							"value": 100,
@@ -35,9 +34,8 @@
 						{
 							"text": "A",
 							"value": 0,
-							"swag_points": 0,
+							"swag_points": 0
 						},
-
 						{
 							"text": "B",
 							"value": 100,
@@ -46,7 +44,7 @@
 						{
 							"text": "C",
 							"value": 0,
-							"swag_points": 0,
+							"swag_points": 0
 						}
 					],
 					"options": {
@@ -62,18 +60,17 @@
 						{
 							"text": "A",
 							"value": 0,
-							"swag_points": 0,
+							"swag_points": 0
 						},
-
 						{
 							"text": "B",
 							"value": 0,
-							"swag_points": 0,
+							"swag_points": 0
 						},
 						{
 							"text": "C",
 							"value": 0,
-							"swag_points": 0,
+							"swag_points": 0
 						},
 						{
 							"text": "D",

@@ -1,4 +1,4 @@
-export function createQuiz(title = 'My Kahoot') {
+export function createQuiz(title = 'My Quiz') {
     return {
         title,
         questions: [createQuestion()],

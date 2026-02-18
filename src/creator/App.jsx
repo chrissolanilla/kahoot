@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import WelcomeModal from './components/WelcomeModal';
 import QuestionEditor from './components/QuestionEditor';
 import { createQuiz } from './lib/quizModel';
@@ -16,14 +16,10 @@ export default function App() {
         if (!window.Materia?.CreatorCore) return;
 
         window.Materia.CreatorCore.start({
-            initNewWidget: () => {
-				//show the modal if new widget
-            },
+            initNewWidget: () => {},
 
             initExistingWidget: (title, widget, existingQset) => {
-                //for now just open editor with a title
-				//probably dont show modal if its existing widget
-                setQuiz(createQuiz(title || 'My Kahoot'));
+                setQuiz(createQuiz(title || 'My Quiz'));
             },
 
             onSaveClicked: () => {
@@ -35,25 +31,24 @@ export default function App() {
                 }
 
                 const qset = buildQset(current);
-
-                console.log('Saving qset:', qset);
-
-                window.Materia.CreatorCore.save(current.title.trim() || 'Kahoot', qset);
+                window.Materia.CreatorCore.save(current.title.trim() || 'Classroom Clash', qset);
             },
         });
     }, []);
 
     return (
-        <div className="app creator">
+        <div className="app">
             <header className="header">
-                <h1>Kahoot</h1>
+                <h1 className="header__title">Classroom Clash</h1>
             </header>
 
-            {quiz == null ? (
-                <WelcomeModal onCreate={setQuiz} />
-            ) : (
-                <QuestionEditor quiz={quiz} setQuiz={setQuiz} />
-            )}
+            <main className="app__content">
+                {quiz == null ? (
+                    <WelcomeModal onCreate={setQuiz} />
+                ) : (
+                    <QuestionEditor quiz={quiz} setQuiz={setQuiz} />
+                )}
+            </main>
         </div>
     );
 }

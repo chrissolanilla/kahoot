@@ -1,0 +1,107 @@
+@use '../../player/styles/variables' as *;
+
+.editor {
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+}
+
+.editor__top-bar {
+    display: flex;
+    align-items: end;
+    gap: $space-md;
+}
+
+.editor__title-field {
+    flex: 1;
+}
+
+.editor__questions {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+}
+
+// Question card
+.question-card {
+    background: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    box-shadow: $shadow-sm;
+    overflow: hidden;
+}
+
+.question-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $space-md $space-lg;
+    background: $color-primary-light;
+    border-bottom: 1px solid $color-border;
+}
+
+.question-card__number {
+    font-size: $font-size-base;
+    font-weight: 700;
+    color: $color-primary;
+    margin: 0;
+}
+
+.question-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+    padding: $space-lg;
+}
+
+.question-card__meta {
+    display: flex;
+    gap: $space-md;
+    align-items: end;
+    flex-wrap: wrap;
+}
+
+.question-card__meta-field {
+    flex: 1;
+    min-width: 100px;
+}
+
+.question-card__choice-controls {
+    display: flex;
+    gap: $space-xs;
+}
+
+.question-card__choices {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+}
+
+// Choice row
+.choice-row {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+}
+
+.choice-row__input {
+    flex: 1;
+}
+
+.choice-row__radio {
+    display: flex;
+    align-items: center;
+    gap: $space-xs;
+    font-size: $font-size-sm;
+    font-weight: 500;
+    color: $color-text-muted;
+    cursor: pointer;
+    white-space: nowrap;
+
+    input[type="radio"] {
+        accent-color: $color-primary;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+    }
+}
