@@ -1,0 +1,22 @@
+@use 'variables' as *;
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    padding-bottom: $space-md;
+    border-bottom: 1px solid $color-border;
+}
+
+.header__title {
+    font-size: $font-size-xl;
+    font-weight: 900;
+    color: $color-primary;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.header__back {
+    padding: $space-xs $space-sm;
+    font-size: $font-size-sm;
+}

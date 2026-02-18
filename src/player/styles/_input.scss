@@ -1,0 +1,33 @@
+@use 'variables' as *;
+@use 'sass:color';
+
+.input-label {
+    display: block;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    color: $color-text;
+    margin-bottom: $space-xs;
+}
+
+.input {
+    display: block;
+    width: 100%;
+    padding: 10px $space-md;
+    font-family: $font-family;
+    font-size: $font-size-base;
+    color: $color-text;
+    background: $color-surface;
+    border: 1.5px solid $color-border;
+    border-radius: $radius-sm;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+    outline: none;
+
+    &::placeholder {
+        color: color.adjust($color-text-muted, $lightness: 10%);
+    }
+
+    &:focus {
+        border-color: $color-primary;
+        box-shadow: 0 0 0 3px rgba($color-primary, 0.12);
+    }
+}

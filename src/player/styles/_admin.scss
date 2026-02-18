@@ -1,0 +1,30 @@
+@use 'variables' as *;
+
+.admin {
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+}
+
+.admin__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin__code {
+    font-size: $font-size-sm;
+    font-weight: 700;
+    color: $color-primary;
+    background: $color-primary-light;
+    padding: $space-xs $space-sm;
+    border-radius: $radius-full;
+}
+
+.admin__placeholder {
+    text-align: center;
+    padding: $space-2xl $space-lg;
+    background: $color-surface;
+    border-radius: $radius-md;
+    border: 1px dashed $color-border;
+}

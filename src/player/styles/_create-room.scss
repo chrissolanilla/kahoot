@@ -1,0 +1,19 @@
+@use 'variables' as *;
+
+.create-room {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+}
+
+.create-room__form {
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+    margin-top: $space-lg;
+    padding: $space-lg;
+    background: $color-surface;
+    border-radius: $radius-md;
+    box-shadow: $shadow-sm;
+    border: 1px solid $color-border;
+}

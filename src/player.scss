@@ -1,20 +1,11 @@
-body {
-    margin:0;
-}
-
-.app { max-width: 720px; margin: 0 auto; padding: 16px; font-family: Lato, sans-serif; }
-
-.row { display: flex; gap: 10px; align-items: end; margin-top: 12px; }
-.spacer { flex: 1; }
-.field { display: grid; gap: 6px; }
-.muted { opacity: 0.7; }
-
-.lobbyRow { display: flex; gap: 10px; align-items: center; margin: 8px 0; }
-.lobbyRow__label { flex: 1; }
-
-.banner { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 6px; margin: 10px 0; }
-.banner[data-type="info"] { background: #eef5ff; }
-.banner[data-type="success"] { background: #eefaf0; }
-.banner[data-type="error"] { background: #ffecec; }
-.banner__close { margin-left: auto; }
-
+@use 'player/styles/variables';
+@use 'player/styles/base';
+@use 'player/styles/header';
+@use 'player/styles/banner';
+@use 'player/styles/button';
+@use 'player/styles/input';
+@use 'player/styles/landing';
+@use 'player/styles/create-room';
+@use 'player/styles/view-rooms';
+@use 'player/styles/lobby';
+@use 'player/styles/admin';
