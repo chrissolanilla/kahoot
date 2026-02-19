@@ -1,0 +1,78 @@
+@use 'variables' as *;
+
+.leaderboard {
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+}
+
+.leaderboard__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+}
+
+.leaderboard__item {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    padding: $space-md $space-lg;
+    background: $color-surface;
+    border-radius: $radius-md;
+    box-shadow: $shadow-sm;
+    border: 1px solid $color-border;
+}
+
+.leaderboard__rank {
+    font-size: $font-size-lg;
+    font-weight: 700;
+    color: $color-primary;
+    min-width: 36px;
+}
+
+.leaderboard__name {
+    flex: 1;
+    font-weight: 600;
+}
+
+.leaderboard__score {
+    font-weight: 700;
+    color: $color-accent;
+}
+
+.leaderboard__result {
+    text-align: center;
+    font-size: $font-size-xl;
+    font-weight: 700;
+    padding: $space-md;
+    border-radius: $radius-md;
+}
+
+.leaderboard__result--correct {
+    color: $color-success;
+    background: $color-success-bg;
+}
+
+.leaderboard__result--wrong {
+    color: $color-error;
+    background: $color-error-bg;
+}
+
+.leaderboard__result--unanswered {
+    color: $color-text-muted;
+    background: $color-bg;
+}
+
+.leaderboard__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-md;
+}
+
+.leaderboard__waiting {
+    text-align: center;
+}

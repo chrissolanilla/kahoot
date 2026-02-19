@@ -1,0 +1,67 @@
+@use 'variables' as *;
+
+.game-over {
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+    text-align: center;
+}
+
+.game-over__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+}
+
+.game-over__item {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    padding: $space-md $space-lg;
+    background: $color-surface;
+    border-radius: $radius-md;
+    box-shadow: $shadow-sm;
+    border: 1px solid $color-border;
+}
+
+.game-over__item--top1 {
+    border-color: $color-accent;
+    background: $color-accent-light;
+}
+
+.game-over__item--top2 {
+    border-color: $color-text-muted;
+}
+
+.game-over__item--top3 {
+    border-color: #CD7F32;
+}
+
+.game-over__rank {
+    font-size: $font-size-lg;
+    font-weight: 700;
+    color: $color-primary;
+    min-width: 36px;
+}
+
+.game-over__name {
+    flex: 1;
+    font-weight: 600;
+    text-align: left;
+}
+
+.game-over__score {
+    font-weight: 700;
+    color: $color-accent;
+}
+
+.game-over__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-md;
+    margin-top: $space-md;
+}

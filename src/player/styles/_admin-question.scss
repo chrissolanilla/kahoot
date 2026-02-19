@@ -1,0 +1,100 @@
+@use 'variables' as *;
+
+.admin-question {
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+}
+
+.admin-question__bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-question__counter {
+    font-size: $font-size-sm;
+    font-weight: 600;
+    color: $color-text-muted;
+}
+
+.admin-question__stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $space-lg;
+}
+
+.admin-question__timer {
+    text-align: center;
+    font-size: $font-size-2xl;
+    font-weight: 700;
+    color: $color-accent;
+    background: $color-accent-light;
+    padding: $space-sm $space-lg;
+    border-radius: $radius-full;
+    min-width: 80px;
+}
+
+.admin-question__answered {
+    font-size: $font-size-sm;
+    font-weight: 600;
+    color: $color-primary;
+    background: $color-primary-light;
+    padding: $space-sm $space-lg;
+    border-radius: $radius-full;
+}
+
+.admin-question__prompt {
+    padding: $space-lg;
+    background: $color-surface;
+    border-radius: $radius-md;
+    box-shadow: $shadow-sm;
+    border: 1px solid $color-border;
+    text-align: center;
+}
+
+.admin-question__prompt-text {
+    font-size: $font-size-xl;
+    font-weight: 700;
+    margin: 0;
+}
+
+.admin-question__choices {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+}
+
+.admin-question__choice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $space-md $space-lg;
+    background: $color-surface;
+    border: 2px solid $color-border;
+    border-radius: $radius-md;
+}
+
+.admin-question__choice--correct {
+    border-color: $color-success;
+    background: $color-success-bg;
+}
+
+.admin-question__choice-text {
+    font-weight: 600;
+}
+
+.admin-question__choice-badge {
+    font-size: $font-size-xs;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color-success;
+}
+
+.admin-question__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-md;
+}
