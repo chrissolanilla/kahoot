@@ -9,6 +9,7 @@ if (window.Materia?.Engine) {
     Materia.Engine.start({
         start: (instance, qset) => {
             console.log("Game instance started with qset:", qset);
+            console.log("Instance:", instance);
             root.render(<App qset={qset} />);
         },
     });

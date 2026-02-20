@@ -141,16 +141,33 @@ export function AppProvider({ children, qset }) {
         });
     }
 
-    function logQuestionToMateria(choiceIdOrNull, wasCorrect) {
-        const q = game.currentQuestion;
-        if (!q?.itemId) return;
-        const answerText =
-            choiceIdOrNull == null
-                ? "TIME_UP"
-                : q.choices.find((c) => c.id === choiceIdOrNull)?.text ?? "";
-        const score = wasCorrect ? 100 : 0;
+	//my materia logs dont seem to wrok on finding play id
+    // function logQuestionToMateriaForQuestion(q, choiceIdOrNull, wasCorrect) {
+    //     if (!q?.itemId) return;
+    //
+    //     const answerText =
+    //         choiceIdOrNull == null
+    //             ? "TIME_UP"
+    //             : q.choices.find((c) => c.id === choiceIdOrNull)?.text ?? "";
+    //
+    //     window.Materia?.Score?.submitQuestionForScoring?.(
+    //         q.itemId,
+    //         answerText,
+    //         wasCorrect ? 100 : 0
+    //     );
+    // }
 
-        window.Materia?.Score?.submitQuestionForScoring?.(q.itemId, answerText, score);
+    function logTimeUpIfNeeded() {
+        setGame((prev) => {
+            const q = prev.currentQuestion;
+            if (!q?.itemId) return prev;
+            if (prev.submitted || prev.submittedToMateria) return prev;
+            if (prev.timeRemaining !== 0) return prev;
+
+            // logQuestionToMateriaForQuestion(q, null, false);
+
+            return { ...prev, submittedToMateria: true };
+        });
     }
 
     function submitAnswer(choiceId) {
@@ -160,17 +177,13 @@ export function AppProvider({ children, qset }) {
             if (prev.submitted) return prev;
 
             const q = prev.currentQuestion;
-            if (q?.itemId) {
-                const fullQ = prev.questions.find((qq) => qq.itemId === q.itemId);
-                const wasCorrect = !!fullQ?.choices.find((c) => c.id === choiceId)?.correct;
-                const answerText = q.choices.find((c) => c.id === choiceId)?.text ?? "";
+            if (!q?.itemId) return prev;
 
-                window.Materia?.Score?.submitQuestionForScoring?.(
-                    q.itemId,
-                    answerText,
-                    wasCorrect ? 100 : 0
-                );
-            }
+            const fullQ = prev.questions.find((qq) => qq.itemId === q.itemId);
+            const wasCorrect = !!fullQ?.choices.find((c) => c.id === choiceId)?.correct;
+
+            console.log("q, choiceId, wasCorrect", q, choiceId, wasCorrect);
+            // logQuestionToMateriaForQuestion(q, choiceId, wasCorrect);
 
             return {
                 ...prev,
@@ -182,6 +195,7 @@ export function AppProvider({ children, qset }) {
 
         sendAnswer(choiceId);
     }
+
     function resetGame() {
         setGame(initialGame);
     }
@@ -216,6 +230,7 @@ export function AppProvider({ children, qset }) {
         nextQuestion,
         submitAnswer,
         resetGame,
+        logTimeUpIfNeeded,
     };
 
     return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
