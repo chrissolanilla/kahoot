@@ -20,6 +20,7 @@ export default function useRoomSocket({ setBanner, clearBanner, navigate, setGam
         wsRef.current = ws;
 
         ws.onopen = () => {
+            intentionallyCloseWS.current = false;
             wsSend(ws, { event: 'join', payload: { name: playerName } });
         };
 
@@ -73,6 +74,7 @@ export default function useRoomSocket({ setBanner, clearBanner, navigate, setGam
                     selectedAnswer: null,
                     submitted: false,
                     answeredCount: 0,
+                    submittedToMateria: false,
                 }));
                 if (!isHostRef.current) {
                     cb.navigate('question');
@@ -126,7 +128,7 @@ export default function useRoomSocket({ setBanner, clearBanner, navigate, setGam
         };
 
         ws.onclose = () => {
-            if (!intentionalCloseRef.current && code) {
+            if (!intentionallyCloseWS.current && code) {
                 callbacksRef.current.setBanner?.('disconnected from lobby', 'error');
             }
         };
@@ -194,6 +196,7 @@ export default function useRoomSocket({ setBanner, clearBanner, navigate, setGam
         const correctIds = question.choices.filter((c) => c.correct).map((c) => c.id);
         const clean = {
             ...question,
+            itemId: question.itemId,
             choices: question.choices.map(({ id, text }) => ({ id, text })),
         };
         wsSend(wsRef.current, {

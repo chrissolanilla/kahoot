@@ -53,7 +53,7 @@ export default function GameOverView() {
                 <button
                     type="button"
                     className="btn btn--secondary btn--lg"
-                    onClick={handleViewScore}
+                    onClick={goToScoreScreen}
                 >
                     View Score Report
                 </button>

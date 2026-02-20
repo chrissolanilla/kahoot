@@ -141,23 +141,57 @@ export function AppProvider({ children, qset }) {
         });
     }
 
-    function submitAnswer(choiceId) {
-        if (game.submitted) return;
-        setGame((prev) => ({
-            ...prev,
-            selectedAnswer: choiceId,
-            submitted: true,
-        }));
-        sendAnswer(choiceId);
+    function logQuestionToMateria(choiceIdOrNull, wasCorrect) {
+        const q = game.currentQuestion;
+        if (!q?.itemId) return;
+        const answerText =
+            choiceIdOrNull == null
+                ? 'TIME_UP'
+                : q.choices.find((c) => c.id === choiceIdOrNull)?.text ?? '';
+        const score = wasCorrect ? 100 : 0;
+
+        window.Materia?.Score?.submitQuestionForScoring?.(q.itemId, answerText, score);
     }
 
+    function submitAnswer(choiceId) {
+        if (game.submitted) return;
+
+        setGame((prev) => {
+            if (prev.submitted) return prev;
+
+            const q = prev.currentQuestion;
+            if (q?.itemId) {
+                const fullQ = prev.questions.find((qq) => qq.itemId === q.itemId);
+                const wasCorrect = !!fullQ?.choices.find((c) => c.id === choiceId)?.correct;
+                const answerText = q.choices.find((c) => c.id === choiceId)?.text ?? '';
+
+                window.Materia?.Score?.submitQuestionForScoring?.(
+                    q.itemId,
+                    answerText,
+                    wasCorrect ? 100 : 0
+                );
+            }
+
+            return {
+                ...prev,
+                selectedAnswer: choiceId,
+                submitted: true,
+                submittedToMateria: true,
+            };
+        });
+
+        sendAnswer(choiceId);
+    }
     function resetGame() {
         setGame(initialGame);
     }
 
     useEffect(() => {
-        return () => cleanupRoom();
-    }, []);
+        if (!qset) return;
+        const questions = parseQset(qset);
+        setGame((prev) => ({ ...prev, questions }));
+        // return () => cleanupRoom();
+    }, [qset]);
 
     const value = {
         screen,

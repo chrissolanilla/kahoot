@@ -1,8 +1,16 @@
+import { useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 
 export default function QuestionView() {
     const { game, submitAnswer, room } = useApp();
-    const { currentQuestion, timeRemaining, selectedAnswer, submitted, answeredCount } = game;
+    const {
+		currentQuestion,
+		timeRemaining,
+		selectedAnswer,
+		submitted,
+		answeredCount,
+		submittedToMateria,
+	} = game;
 
     if (!currentQuestion) {
         return (
@@ -13,6 +21,17 @@ export default function QuestionView() {
     }
 
     const { prompt, choices, questionNumber, totalQuestions } = currentQuestion;
+
+    useEffect(() => {
+        if (!currentQuestion?.itemId) return;
+        if (timeRemaining !== 0) return;
+        if (submitted || submittedToMateria) return;
+
+        //if we run out of time, send a time up log
+        window.Materia?.Score?.submitQuestionForScoring?.(currentQuestion.itemId, 'TIME_UP', 0);
+
+        setGame((prev) => ({ ...prev, submittedToMateria: true }));
+    }, [currentQuestion?.itemId, timeRemaining, submitted, submittedToMateria, setGame]);
 
     return (
         <section className="question">
