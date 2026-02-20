@@ -1,6 +1,6 @@
-import { useMemo } from 'react';
-import { useApp } from '../context/AppContext';
-import PlayerList from '../components/PlayerList';
+import { useMemo } from "react";
+import { useApp } from "../context/AppContext";
+import PlayerList from "../components/PlayerList";
 
 export default function LobbyView() {
     const { room, handleLeaveLobby, startGame } = useApp();

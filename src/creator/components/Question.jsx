@@ -17,7 +17,7 @@ export default function Question({ index, question, onChange, onDelete, disableD
     function incrementChoices() {
         if (choicesCount >= 4) return;
         const nextId = String(Date.now() + Math.random());
-        onChange({ choices: [...question.choices, { id: nextId, text: '', correct: false }] });
+        onChange({ choices: [...question.choices, { id: nextId, text: "", correct: false }] });
     }
 
     function decrementChoices() {

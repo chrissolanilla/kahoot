@@ -1,8 +1,8 @@
-import { useApp } from '../context/AppContext';
+import { useApp } from "../context/AppContext";
 
 export default function Header() {
     const { screen, navigate } = useApp();
-    const showBack = screen !== 'landing';
+    const showBack = screen !== "landing";
 
     return (
         <header className="header">
@@ -10,7 +10,7 @@ export default function Header() {
                 <button
                     type="button"
                     className="header__back btn btn--ghost"
-                    onClick={() => navigate('landing')}
+                    onClick={() => navigate("landing")}
                 >
                     &larr; Back
                 </button>

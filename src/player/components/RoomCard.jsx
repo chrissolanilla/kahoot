@@ -4,7 +4,7 @@ export default function RoomCard({ name, code, playerCount, isPrivate, onJoin })
             <div className="room-card__info">
                 <span className="room-card__name">{name}</span>
                 <span className="room-card__meta">
-                    {code} &middot; {playerCount} player{playerCount !== 1 ? 's' : ''}
+                    {code} &middot; {playerCount} player{playerCount !== 1 ? "s" : ""}
                 </span>
             </div>
             {isPrivate ? (

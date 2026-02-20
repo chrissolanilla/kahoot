@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { useApp } from '../context/AppContext';
+import { useState } from "react";
+import { useApp } from "../context/AppContext";
 
 export default function CreateRoomView() {
     const { handleCreateRoom, connected } = useApp();
-    const [lobbyName, setLobbyName] = useState('');
+    const [lobbyName, setLobbyName] = useState("");
 
     function onSubmit(e) {
         e.preventDefault();

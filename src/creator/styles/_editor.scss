@@ -1,4 +1,4 @@
-@use '../../player/styles/variables' as *;
+@use "../../player/styles/variables" as *;
 
 .editor {
     display: flex;
@@ -98,7 +98,7 @@
     cursor: pointer;
     white-space: nowrap;
 
-    input[type='radio'] {
+    input[type="radio"] {
         accent-color: $color-primary;
         width: 16px;
         height: 16px;

@@ -1,11 +1,11 @@
-import { useApp } from '../context/AppContext';
+import { useApp } from "../context/AppContext";
 
 export default function LandingView() {
     const { name, setName, navigate, setBanner, connected } = useApp();
 
     function go(target) {
         if (!name.trim()) {
-            setBanner('enter your name first', 'error');
+            setBanner("enter your name first", "error");
             return;
         }
         navigate(target);
@@ -37,7 +37,7 @@ export default function LandingView() {
                     type="button"
                     className="btn btn--primary btn--lg"
                     disabled={!connected}
-                    onClick={() => go('createRoom')}
+                    onClick={() => go("createRoom")}
                 >
                     Create a Room
                 </button>
@@ -45,7 +45,7 @@ export default function LandingView() {
                     type="button"
                     className="btn btn--secondary btn--lg"
                     disabled={!connected}
-                    onClick={() => go('viewRooms')}
+                    onClick={() => go("viewRooms")}
                 >
                     Browse Rooms
                 </button>

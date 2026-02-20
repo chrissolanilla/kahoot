@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use "variables" as *;
 
 .lobby {
     display: flex;
@@ -21,7 +21,7 @@
     letter-spacing: 0.2em;
     color: $color-primary;
     margin: $space-sm 0;
-    font-family: 'Lato', monospace;
+    font-family: "Lato", monospace;
 }
 
 .lobby__status {

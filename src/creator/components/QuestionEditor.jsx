@@ -1,5 +1,5 @@
-import Question from './Question';
-import { createQuestion } from '../lib/quizModel';
+import Question from "./Question";
+import { createQuestion } from "../lib/quizModel";
 
 export default function QuestionEditor({ quiz, setQuiz }) {
     function addQuestion() {

@@ -1,16 +1,16 @@
-import { useEffect, useRef, useState } from 'react';
-import { createQuiz } from '../lib/quizModel';
+import { useEffect, useRef, useState } from "react";
+import { createQuiz } from "../lib/quizModel";
 
 export default function WelcomeModal({ onCreate }) {
     const dialogRef = useRef(null);
-    const [title, setTitle] = useState('My Quiz');
+    const [title, setTitle] = useState("My Quiz");
 
     useEffect(() => {
         dialogRef.current?.showModal();
     }, []);
 
     function create() {
-        onCreate(createQuiz(title.trim() || 'My Quiz'));
+        onCreate(createQuiz(title.trim() || "My Quiz"));
         dialogRef.current?.close();
     }
 

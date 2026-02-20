@@ -1,4 +1,4 @@
-import { useApp } from '../context/AppContext';
+import { useApp } from "../context/AppContext";
 
 export default function LeaderboardView() {
     const { game, room, nextQuestion } = useApp();
@@ -10,9 +10,9 @@ export default function LeaderboardView() {
 
             {!room.isHost && lastResult && (
                 <div className={`leaderboard__result leaderboard__result--${lastResult}`}>
-                    {lastResult === 'correct' && 'Correct!'}
-                    {lastResult === 'wrong' && 'Wrong!'}
-                    {lastResult === 'unanswered' && 'No answer submitted'}
+                    {lastResult === "correct" && "Correct!"}
+                    {lastResult === "wrong" && "Wrong!"}
+                    {lastResult === "unanswered" && "No answer submitted"}
                 </div>
             )}
 

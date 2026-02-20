@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
-import WelcomeModal from './components/WelcomeModal';
-import QuestionEditor from './components/QuestionEditor';
-import { createQuiz } from './lib/quizModel';
-import { buildQset } from './lib/buildQset';
+import { useEffect, useRef, useState } from "react";
+import WelcomeModal from "./components/WelcomeModal";
+import QuestionEditor from "./components/QuestionEditor";
+import { createQuiz } from "./lib/quizModel";
+import { buildQset } from "./lib/buildQset";
 
 export default function App() {
     const [quiz, setQuiz] = useState(null);
@@ -19,19 +19,19 @@ export default function App() {
             initNewWidget: () => {},
 
             initExistingWidget: (title, widget, existingQset) => {
-                setQuiz(createQuiz(title || 'My Quiz'));
+                setQuiz(createQuiz(title || "My Quiz"));
             },
 
             onSaveClicked: () => {
                 const current = quizRef.current;
 
                 if (!current) {
-                    window.Materia.CreatorCore.cancelSave('Create a quiz first.');
+                    window.Materia.CreatorCore.cancelSave("Create a quiz first.");
                     return;
                 }
 
                 const qset = buildQset(current);
-                window.Materia.CreatorCore.save(current.title.trim() || 'Classroom Clash', qset);
+                window.Materia.CreatorCore.save(current.title.trim() || "Classroom Clash", qset);
             },
         });
     }, []);

@@ -1,4 +1,4 @@
-export const WS_SCHEME = location.protocol === 'https:' ? 'wss' : 'ws';
+export const WS_SCHEME = location.protocol === "https:" ? "wss" : "ws";
 export const DIRECTORY_URL = `${WS_SCHEME}://${location.host}/ws/kahoot/`;
 export const roomUrl = (code) => `${WS_SCHEME}://${location.host}/ws/kahoot/${code}/`;
 

@@ -1,4 +1,4 @@
-import { useApp } from '../context/AppContext';
+import { useApp } from "../context/AppContext";
 
 export default function AdminView() {
     const { room, handleLeaveLobby, startGame } = useApp();

@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { useApp } from '../context/AppContext';
-import RoomCard from '../components/RoomCard';
+import { useState } from "react";
+import { useApp } from "../context/AppContext";
+import RoomCard from "../components/RoomCard";
 
 export default function ViewRoomsView() {
     const { rooms, refreshRooms, handleJoinRoom, connected } = useApp();
-    const [joinCode, setJoinCode] = useState('');
+    const [joinCode, setJoinCode] = useState("");
 
     function onJoinByCode(e) {
         e.preventDefault();

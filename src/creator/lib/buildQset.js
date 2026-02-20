@@ -4,8 +4,8 @@ export function buildQset(quiz, globalOptions = { showAnswers: true, lives: 3 })
         data: {
             items: quiz.questions.map((q) => {
                 return {
-                    materiaType: 'question',
-                    type: 'kahoot',
+                    materiaType: "question",
+                    type: "kahoot",
                     id: 0,
                     questions: [{ text: q.prompt.trim() }],
                     answers: q.choices.map((c) => ({
