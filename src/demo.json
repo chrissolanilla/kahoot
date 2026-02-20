@@ -1,92 +1,92 @@
 {
-	"name": "Classroom Clash demo",
-	"qset": {
-		"version": 1,
-		"data": {
-			"items": [
-				{
-					"materiaType": "question",
-					"questions": [{ "text": "Question 1" }],
-					"type": "kahoot",
-					"id": 0,
-					"answers": [
-						{
-							"text": "A",
-							"value": 100,
-							"swag_points": 1000
-						},
-						{
-							"text": "B",
-							"value": 100,
-							"swag_points": 1000
-						}
-					],
-					"options": {
-						"time": 30000
-					}
-				},
-				{
-					"materiaType": "question",
-					"questions": [{ "text": "Question 2" }],
-					"type": "kahoot",
-					"id": 0,
-					"answers": [
-						{
-							"text": "A",
-							"value": 0,
-							"swag_points": 0
-						},
-						{
-							"text": "B",
-							"value": 100,
-							"swag_points": 1000
-						},
-						{
-							"text": "C",
-							"value": 0,
-							"swag_points": 0
-						}
-					],
-					"options": {
-						"time": 30000
-					}
-				},
-				{
-					"materiaType": "question",
-					"questions": [{ "text": "Question 3" }],
-					"type": "kahoot",
-					"id": 0,
-					"answers": [
-						{
-							"text": "A",
-							"value": 0,
-							"swag_points": 0
-						},
-						{
-							"text": "B",
-							"value": 0,
-							"swag_points": 0
-						},
-						{
-							"text": "C",
-							"value": 0,
-							"swag_points": 0
-						},
-						{
-							"text": "D",
-							"value": 100,
-							"swag_points": 1000
-						}
-					],
-					"options": {
-						"time": 30000
-					}
-				}
-			],
-			"options": {
-				"showAnswers": true,
-				"lives": 3
-			}
-		}
-	}
+    "name": "Classroom Clash demo",
+    "qset": {
+        "version": 1,
+        "data": {
+            "items": [
+                {
+                    "materiaType": "question",
+                    "questions": [{ "text": "Question 1" }],
+                    "type": "kahoot",
+                    "id": 0,
+                    "answers": [
+                        {
+                            "text": "A",
+                            "value": 100,
+                            "swag_points": 1000
+                        },
+                        {
+                            "text": "B",
+                            "value": 100,
+                            "swag_points": 1000
+                        }
+                    ],
+                    "options": {
+                        "time": 30000
+                    }
+                },
+                {
+                    "materiaType": "question",
+                    "questions": [{ "text": "Question 2" }],
+                    "type": "kahoot",
+                    "id": 0,
+                    "answers": [
+                        {
+                            "text": "A",
+                            "value": 0,
+                            "swag_points": 0
+                        },
+                        {
+                            "text": "B",
+                            "value": 100,
+                            "swag_points": 1000
+                        },
+                        {
+                            "text": "C",
+                            "value": 0,
+                            "swag_points": 0
+                        }
+                    ],
+                    "options": {
+                        "time": 30000
+                    }
+                },
+                {
+                    "materiaType": "question",
+                    "questions": [{ "text": "Question 3" }],
+                    "type": "kahoot",
+                    "id": 0,
+                    "answers": [
+                        {
+                            "text": "A",
+                            "value": 0,
+                            "swag_points": 0
+                        },
+                        {
+                            "text": "B",
+                            "value": 0,
+                            "swag_points": 0
+                        },
+                        {
+                            "text": "C",
+                            "value": 0,
+                            "swag_points": 0
+                        },
+                        {
+                            "text": "D",
+                            "value": 100,
+                            "swag_points": 1000
+                        }
+                    ],
+                    "options": {
+                        "time": 30000
+                    }
+                }
+            ],
+            "options": {
+                "showAnswers": true,
+                "lives": 3
+            }
+        }
+    }
 }

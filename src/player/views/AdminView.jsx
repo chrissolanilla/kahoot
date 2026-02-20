@@ -1,4 +1,4 @@
-import { useApp } from "../context/AppContext";
+import { useApp } from '../context/AppContext';
 
 export default function AdminView() {
     const { room, handleLeaveLobby, startGame } = useApp();
@@ -27,11 +27,7 @@ export default function AdminView() {
                 <p className="text-muted">Game in progress</p>
             )}
 
-            <button
-                type="button"
-                className="btn btn--ghost"
-                onClick={handleLeaveLobby}
-            >
+            <button type="button" className="btn btn--ghost" onClick={handleLeaveLobby}>
                 Close Room
             </button>
         </section>

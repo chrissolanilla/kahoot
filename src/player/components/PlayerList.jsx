@@ -7,9 +7,7 @@ export default function PlayerList({ players }) {
         <ul className="player-list">
             {players.map((p) => (
                 <li key={p.id} className="player-list__item">
-                    <span className="player-list__avatar">
-                        {p.name.charAt(0).toUpperCase()}
-                    </span>
+                    <span className="player-list__avatar">{p.name.charAt(0).toUpperCase()}</span>
                     <span className="player-list__name">{p.name}</span>
                 </li>
             ))}

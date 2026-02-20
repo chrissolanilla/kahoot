@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { useApp } from "../context/AppContext";
-import RoomCard from "../components/RoomCard";
+import { useState } from 'react';
+import { useApp } from '../context/AppContext';
+import RoomCard from '../components/RoomCard';
 
 export default function ViewRoomsView() {
     const { rooms, refreshRooms, handleJoinRoom, connected } = useApp();
-    const [joinCode, setJoinCode] = useState("");
+    const [joinCode, setJoinCode] = useState('');
 
     function onJoinByCode(e) {
         e.preventDefault();
@@ -27,11 +27,7 @@ export default function ViewRoomsView() {
                         placeholder="Enter room code"
                         autoComplete="off"
                     />
-                    <button
-                        type="submit"
-                        className="btn btn--primary"
-                        disabled={!connected}
-                    >
+                    <button type="submit" className="btn btn--primary" disabled={!connected}>
                         Join
                     </button>
                 </form>

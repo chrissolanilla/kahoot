@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { DIRECTORY_URL, safeJsonParse, wsSend } from "../constants";
+import { useEffect, useRef, useState } from 'react';
+import { DIRECTORY_URL, safeJsonParse, wsSend } from '../constants';
 
 export default function useDirectorySocket({ setBanner, onRoomCreated }) {
     const wsRef = useRef(null);
@@ -12,7 +12,7 @@ export default function useDirectorySocket({ setBanner, onRoomCreated }) {
 
         ws.onopen = () => {
             setConnected(true);
-            wsSend(ws, { event: "list_rooms" });
+            wsSend(ws, { event: 'list_rooms' });
         };
 
         ws.onclose = () => setConnected(false);
@@ -21,30 +21,30 @@ export default function useDirectorySocket({ setBanner, onRoomCreated }) {
             const msg = safeJsonParse(e.data);
             if (!msg) return;
 
-            if (msg.event === "rooms") {
+            if (msg.event === 'rooms') {
                 const list = msg.payload?.rooms || [];
                 setRooms(list.filter((r) => !r.started));
                 return;
             }
 
-            if (msg.event === "room_created") {
+            if (msg.event === 'room_created') {
                 onRoomCreated(msg.payload?.code);
                 return;
             }
 
-            if (msg.event === "error") {
-                setBanner(msg.payload?.message || "unknown error", "error");
+            if (msg.event === 'error') {
+                setBanner(msg.payload?.message || 'unknown error', 'error');
             }
         };
     }
 
     function refreshRooms() {
-        wsSend(wsRef.current, { event: "list_rooms" });
+        wsSend(wsRef.current, { event: 'list_rooms' });
     }
 
     function createRoom(lobbyName) {
         wsSend(wsRef.current, {
-            event: "create_room",
+            event: 'create_room',
             payload: { name: lobbyName.trim() },
         });
     }
@@ -52,7 +52,9 @@ export default function useDirectorySocket({ setBanner, onRoomCreated }) {
     useEffect(() => {
         connect();
         return () => {
-            try { wsRef.current?.close(); } catch {}
+            try {
+                wsRef.current?.close();
+            } catch {}
         };
     }, []);
 

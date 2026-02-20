@@ -9,7 +9,7 @@
 		"start": "mwdk-start",
 		"build": "mwdk-build-prod",
 		"build-dev": "mwdk-build-dev",
-		"prettier-format": "prettier --write \"src/creator/**/*.{js,jsx,ts,tsx,json,css,scss,html}\"",
+		"prettier-format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,html}\"",
 		"prettier-check": "prettier --check ."
 	},
 	"author": "UCF Center for Distributed Learning",

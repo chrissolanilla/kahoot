@@ -1,4 +1,4 @@
-import { useApp } from "../context/AppContext";
+import { useApp } from '../context/AppContext';
 
 export default function GameOverView() {
     const { game, navigate, resetGame, handleLeaveLobby } = useApp();
@@ -7,6 +7,14 @@ export default function GameOverView() {
     function handleBackToLanding() {
         resetGame();
         handleLeaveLobby();
+    }
+
+    function goToScoreScreen() {
+        if (window.Materia?.Engine?.end) {
+            window.Materia.Engine.end();
+        } else {
+            console.warn('Materia.Engine.end() not available');
+        }
     }
 
     return (
@@ -22,8 +30,8 @@ export default function GameOverView() {
                         <li
                             key={entry.name}
                             className={
-                                "game-over__item" +
-                                (entry.rank <= 3 ? ` game-over__item--top${entry.rank}` : "")
+                                'game-over__item' +
+                                (entry.rank <= 3 ? ` game-over__item--top${entry.rank}` : '')
                             }
                         >
                             <span className="game-over__rank">#{entry.rank}</span>
@@ -41,6 +49,13 @@ export default function GameOverView() {
                     onClick={handleBackToLanding}
                 >
                     Back to Home
+                </button>
+                <button
+                    type="button"
+                    className="btn btn--secondary btn--lg"
+                    onClick={handleViewScore}
+                >
+                    View Score Report
                 </button>
             </div>
         </section>

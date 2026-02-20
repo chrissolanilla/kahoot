@@ -1,15 +1,15 @@
-import { useApp } from "../context/AppContext";
+import { useApp } from '../context/AppContext';
 
 export default function AdminQuestionView() {
     const { game, nextQuestion, navigate, room } = useApp();
     const { currentQuestion, timeRemaining, questionIndex, gameOver, answeredCount } = game;
 
-    console.log("Current question:", currentQuestion);
-    console.log("Question index:", questionIndex);
-    console.log("Game: ", game);
+    console.log('Current question:', currentQuestion);
+    console.log('Question index:', questionIndex);
+    console.log('Game: ', game);
 
     if (gameOver) {
-        navigate("gameOver");
+        navigate('gameOver');
         return null;
     }
 
@@ -49,8 +49,8 @@ export default function AdminQuestionView() {
                     <div
                         key={choice.id}
                         className={
-                            "admin-question__choice" +
-                            (choice.correct ? " admin-question__choice--correct" : "")
+                            'admin-question__choice' +
+                            (choice.correct ? ' admin-question__choice--correct' : '')
                         }
                     >
                         <span className="admin-question__choice-text">{choice.text}</span>
@@ -62,12 +62,8 @@ export default function AdminQuestionView() {
             </div>
 
             <div className="admin-question__actions">
-                <button
-                    type="button"
-                    className="btn btn--primary btn--lg"
-                    onClick={nextQuestion}
-                >
-                    {questionNumber < totalQuestions ? "Next Question" : "End Game"}
+                <button type="button" className="btn btn--primary btn--lg" onClick={nextQuestion}>
+                    {questionNumber < totalQuestions ? 'Next Question' : 'End Game'}
                 </button>
             </div>
         </section>

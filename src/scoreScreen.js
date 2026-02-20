@@ -1,1 +1,1 @@
-console.log("scorescreen");
+console.log('scorescreen');

@@ -1,4 +1,4 @@
-import { useApp } from "../context/AppContext";
+import { useApp } from '../context/AppContext';
 
 export default function QuestionView() {
     const { game, submitAnswer, room } = useApp();
@@ -33,8 +33,8 @@ export default function QuestionView() {
                         key={choice.id}
                         type="button"
                         className={
-                            "question__choice" +
-                            (selectedAnswer === choice.id ? " question__choice--selected" : "")
+                            'question__choice' +
+                            (selectedAnswer === choice.id ? ' question__choice--selected' : '')
                         }
                         disabled={submitted}
                         onClick={() => submitAnswer(choice.id)}

@@ -1,6 +1,8 @@
 @use 'variables' as *;
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
